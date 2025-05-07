@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Detak Jantung</title>
+  <style>
+    body {
+      font-family: 'Segoe UI',sans-serif;
+      background: linear-gradient(to right, #43cea2,#185a9d);
+      margin:0;padding:0;
+      display:flex;justify-content:center;align-items:center;height:100vh;
+    }
+    .container {
+      max-width:400px; width:90%;
+      background:#fff;
+      padding:30px 40px;
+      border-radius:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+      animation:fadeInScale .6s ease-out;
+    }
+    @keyframes fadeInScale {
+      0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}
+    }
+    h2 { text-align:center; color:#185a9d; margin-bottom:20px; }
+    label { display:block; margin-top:12px; font-weight:bold; color:#333; }
+    input, select {
+      width:100%; padding:10px;
+      border:1px solid #ccc; border-radius:6px; margin-top:5px;
+      transition:border-color .3s;
+    }
+    input:focus, select:focus { border-color:#185a9d; outline:none; }
+    .btn {
+      margin-top:20px;
+      background:#185a9d; color:#fff;
+      border:none; padding:12px; width:100%;
+      border-radius:6px; font-size:16px; cursor:pointer;
+      transition:background .3s,transform .2s;
+    }
+    .btn:hover { background:#143e75; transform:translateY(-2px); }
+    .error {
+      background:#ffdddd; color:#b30000;
+      padding:10px; border-radius:6px; margin-bottom:10px;
+      animation:shake .3s;
+    }
+    @keyframes shake {
+      0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}
+      50%{transform:translateX(5px)}75%{transform:translateX(-5px)}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Formulir Detak Jantung</h2>
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post">
+      <label>Nama</label>
+      <input type="text" name="nama" required>
+
+      <label>Usia</label>
+      <input type="number" name="usia" required>
+
+      <label>Jenis Kelamin</label>
+      <select name="gender" required>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select>
+
+      <label>Detak Jantung Istirahat (bpm)</label>
+      <input type="number" name="rest" required>
+
+      <label>Detak Jantung Maksimum (bpm)</label>
+      <input type="number" name="maxb" required>
+
+      <label>Sistolik (mmHg)</label>
+      <input type="number" name="sys" required>
+
+      <label>Diastolik (mmHg)</label>
+      <input type="number" name="dia" required>
+
+      <button class="btn" type="submit">Prediksi Sekarang</button>
+    </form>
+  </div>
+</body>
+</html>

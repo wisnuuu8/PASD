@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hasil Prediksi</title>
+  <style>
+    body {
+      font-family:'Segoe UI',sans-serif;
+      background:linear-gradient(to right,#43cea2,#185a9d);
+      display:flex;justify-content:center;align-items:center;
+      height:100vh;margin:0;
+    }
+    .result-box {
+      max-width:450px; width:85%;
+      background:#fff; padding:40px; border-radius:12px;
+      text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation:fadeInScale .6s ease-out;
+    }
+    @keyframes fadeInScale {
+      0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}
+    }
+    h2 { color:#43cea2; margin-bottom:10px; animation:popIn .5s ease-out; }
+    @keyframes popIn {
+      0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}
+    }
+    p { font-size:18px; color:#444; margin:10px 0; }
+  </style>
+</head>
+<body>
+  <div class="result-box">
+    <h2>Halo, {{ nama }}!</h2>
+    <p><strong>Kategori Detak Jantung:</strong> {{ kategori }}</p>
+    <p><strong>Zona Latihan:</strong> {{ zona }}</p>
+    <p><a href="/" style="color:#185a9d; text-decoration:none;">← Prediksi Lagi</a></p>
+  </div>
+</body>
+</html>
